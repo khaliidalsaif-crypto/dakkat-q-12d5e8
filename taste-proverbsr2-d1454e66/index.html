@@ -1,0 +1,36 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>عيّنة الذوق: أمثال (كمّل المثل)</title>
+<style>body{font-family:Tahoma,Arial,sans-serif;background:#f4f1ea;color:#222;margin:0 auto;padding:14px;max-width:780px;line-height:1.7}
+h1{font-size:20px;margin:6px 0}h2{font-size:16px;margin:22px 0 4px;border-bottom:2px solid #b08d57;padding-bottom:4px}p.note{font-size:13px;color:#555;margin:4px 0 10px}
+.card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;margin:8px 0}.card.done{border-color:#7aa874;background:#f3faf1}
+.lv{display:inline-block;background:#eee;border-radius:4px;padding:0 6px;font-size:12px;margin-left:6px}.q{font-size:13px;color:#666;margin:4px 0 6px}
+button{font-family:inherit;font-size:15px;padding:8px 12px;border:1px solid #999;border-radius:6px;background:#fafafa;cursor:pointer;margin:3px 2px}
+button.on5{background:#1f5a3c;color:#fff;border-color:#1f5a3c}button.on4{background:#4f8f63;color:#fff;border-color:#4f8f63}button.on3{background:#b08d57;color:#fff;border-color:#b08d57}button.on2{background:#c56a3a;color:#fff;border-color:#c56a3a}button.on1{background:#b3392f;color:#fff;border-color:#b3392f}
+#bar{position:sticky;top:0;background:#f4f1ea;padding:8px 0;border-bottom:1px solid #ccc;z-index:5;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+#save{background:#b08d57;color:#fff;border-color:#b08d57}</style></head><body>
+<h1>عيّنة الذوق: أمثال (كمّل المثل)</h1><p class="note">لكل سؤال اضغط درجة من خمس: ممتاز، حلو، عادي، ضعيف، أو ما يسوى. الجواب مكتوب تحته. تقدمك ينحفظ في المتصفح، ولما تخلص (أو متى ما تبي) اضغط «أرسل الملف».</p>
+<div id="gate"></div><div id="main" style="display:none"><div id="bar"><span id="prog"></span><span><button id="save" onclick="shareJSON()">أرسل الملف</button> <button onclick="copyJSON()">نسخ</button></span></div><div id="list"></div></div>
+<script>
+let DATA=null;const B={"v":1,"it":250000,"s":"zzc560ofmEmfyjndX4Uc7g==","iv":"0HuL7tM1A/FYvOuG","ct":"0axN4TO5jlDRHzxRpAefMnK4vcevKWHwZiAtozSKwIJcai2BO7dFtHhTttz3Q7eKF0LBOdQ67q1eJalLChuSLNSblLawVoXzcpCdbZVuVb8u/KQ/3ME8SAWWapfeCE2akVrkY3MIFHJQov+hyg5FnPMPWty8UP7K7RqQPqZIG2ilN2d9PWX4T6ur0IErMDZjOqCwSSncd761RJwszJAp32/CzQHw5XKQe8PRWWfCCf1yFMuri/pKopVgBttcw0LXoFF1pyNBtfIetc2u07P8SXQXCkpnDuQp9rtNGrJ35DEojPaZFrRsQaSDlvChwWh4epPhqAr4NK+dn+hFeW8AzMcNqjurKf5QVsQZyVvTmVeuww/WyMT36MiFOQs0hi/Md5xGGDf4aBJwFcSMIeTBNBL2WMYqNEyXiN+C44L4uwREuoRwkbgO3tRXEHv9rhTWRZBr7BUSuwQHQ+F64l8pVoZSuprMYO9zA92/uMYc6x6JcdLaGuTAeX7i/sxUlxs4vPlaQvOhW8xjy00DSlG57giDq2Wsj+mzkM8V6xpggJ/T7Ls+cnFrFTf/KvbIR12sFQwm7IMDFucJ5yrN4oW/GbXo4nOi8Kz6LVvSt6Xi0lG9JxGKvwqW9O6M5KnlXbPtvSc3fh1s+XUa/+wxE8Qt/gLDdAB9dgU8np5l2b+2vQsqQStYb4i2pu80EGmyQ2z1kionrZFe9YTy5xgntHi1aJ1AViiauw=="};const PWK='dakkat_pw_ref';const KEY='dakkat_taste_proverbsr2_v1';let S={r:{}};
+try{S=Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'));}catch(e){}
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function rate(id,v){S.r[id]=v;localStorage.setItem(KEY,JSON.stringify(S));paint(id);progress();}
+function paint(id){const el=document.getElementById('f_'+id);if(!el)return;el.classList.toggle('done',S.r[id]!==undefined);el.querySelectorAll('button').forEach(b=>{const v=b.getAttribute('data-v');b.className=(String(S.r[id])===v)?('on'+v):'';});}
+function build(){let h='',sub='';DATA.forEach(x=>{if(x.sub!==sub){sub=x.sub;h+='<h2>'+esc(sub)+'</h2>';}
+h+='<div class="card" id="f_'+x.id+'"><div><span class="lv">'+x.lv+'</span>'+esc(x.q)+'</div><div class="q">الجواب: '+esc(x.a)+'</div>'+[[5,'ممتازة'],[4,'حلوة'],[3,'عادية'],[2,'ضعيفة'],[1,'ما تسوى']].map(o=>'<button data-v="'+o[0]+'" onclick="rate(\''+x.id+'\','+o[0]+')">'+o[1]+'</button>').join('')+'</div>';});
+document.getElementById('list').innerHTML=h;DATA.forEach(x=>paint(x.id));progress();}
+function progress(){document.getElementById('prog').textContent='خلصت '+Object.keys(S.r).length+' من '+DATA.length;}
+function exportJSON(){return JSON.stringify({version:2,scale:'1-5',category:'proverbs',saved_at:new Date().toISOString(),total:DATA.length,ratings:S.r},null,1);}
+function downloadJSON(txt){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'application/json'}));a.download='taste_proverbs.json';document.body.appendChild(a);a.click();a.remove();}
+async function shareJSON(){const txt=exportJSON();try{const f=new File([txt],'taste_proverbs.json',{type:'application/json'});if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'taste_proverbs'});return}}catch(e){if(e&&e.name==='AbortError')return}downloadJSON(txt);}
+async function copyJSON(){const txt=exportJSON();try{await navigator.clipboard.writeText(txt);alert('انتسخ. الصقه في تيليجرام وأرسله');}catch(e){prompt('انسخ النص وأرسله',txt);}}
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function dec(p){const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(p),'PBKDF2',false,['deriveKey']);
+const k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(B.s),iterations:B.it,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+const buf=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(B.iv)},k,b64(B.ct));
+return await new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))).text();}
+async function tryPw(p){try{DATA=JSON.parse(await dec(p));}catch(e){localStorage.removeItem(PWK);return false}localStorage.setItem(PWK,p);document.getElementById('gate').innerHTML='';document.getElementById('main').style.display='';build();return true}
+function gate(bad){document.getElementById('gate').innerHTML='<div class="card"><b>كلمة السر</b><p class="note">نفس كلمة السر حقت صفحات التقييم. تنطلب أول مرة بس.</p><input id="pw" type="password" style="width:100%;box-sizing:border-box;font-size:18px;padding:10px;border:1px solid #999;border-radius:6px;text-align:center"><p class="note" id="pwmsg" style="color:#b3392f">'+(bad?'كلمة السر غلط، جرّب مرة ثانية':'')+'</p><button onclick="submitPw()">دخول</button></div>';}
+async function submitPw(){const v=document.getElementById('pw').value.trim();if(!v)return;document.getElementById('pwmsg').textContent='جاري الفتح...';if(!(await tryPw(v)))gate(true);}
+async function boot(){const p=localStorage.getItem(PWK);if(p&&await tryPw(p))return;gate(false);}
+boot();
+</script></body></html>
